@@ -1,5 +1,10 @@
 # script_celery_django
-Crear un script para gestionar una tarea de 2 parametros 
+Crear un script para gestionar una tarea de 2 parametros
+ 
+# correr migraciones 
+```bash
+python manage.py migrate
+```
 
 # Correr los workers de celery
 ```bash
