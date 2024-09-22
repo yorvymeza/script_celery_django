@@ -19,13 +19,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django_celery_beat",
+    "django_celery_results",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_celery_beat"
+    "example"    
+
     
 ]
 
@@ -40,9 +43,6 @@ MIDDLEWARE = [
 ]
 
 
-# ... otras configuraciones de Django ...
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-CELERY_RESULT_BACKEND = 'amqp://guest:guest@localhost:5672//'
 
 
 
@@ -120,6 +120,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuración de Celery con Redis
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'# ... otras configuraciones de Django ...
+
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True
