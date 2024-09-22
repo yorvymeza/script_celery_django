@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from . import views
+print("wwww ",views.schedule_dynamic_task)
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("encolar/<str:task_name>/<int:param1>/<int:param2>/",views.schedule_dynamic_task)
 ]
